@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckun6bvtewa1n"]
 
-[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_ai766"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="1_l4aql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_33yq0"]
 
 [node name="Cherry" type="RigidBody2D"]
 
 [node name="Ellipse" type="Node2D" parent="."]
-script = ExtResource("1_ai766")
+script = ExtResource("1_l4aql")
 size = Vector2(40, 40)
 fill_color = Color(0.83, 0, 0, 1)
 

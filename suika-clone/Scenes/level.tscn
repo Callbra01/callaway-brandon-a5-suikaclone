@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4jiin67gp0xy"]
+[gd_scene load_steps=5 format=3 uid="uid://c4jiin67gp0xy"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_cfb4e"]
+[ext_resource type="Script" path="res://Scripts/Spawner.cs" id="2_nv5a3"]
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="3_qhj8s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wv0s"]
 
@@ -46,3 +48,11 @@ scale = Vector2(5, 28.0887)
 shape = SubResource("RectangleShape2D_8wv0s")
 
 [node name="Game Manager" type="Node" parent="."]
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(340, 0)
+script = ExtResource("2_nv5a3")
+
+[node name="Ellipse" type="Node2D" parent="Spawner"]
+script = ExtResource("3_qhj8s")
+size = Vector2(30, 30)
