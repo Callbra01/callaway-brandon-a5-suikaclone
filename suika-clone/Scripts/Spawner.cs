@@ -10,15 +10,29 @@ public partial class Spawner : Node2D
 
     [Export]
     public float rightBound = 800f;
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-	{
-	}
+
+	[Export]
+	public PackedScene cherry;
+
+	[Export]
+	public Node2D fruitParent;
+
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		CustomMove(delta);
+
+		if (Input.IsActionJustPressed("spawn"))
+		{
+			RigidBody2D fruit = cherry.Instantiate<RigidBody2D>();
+			fruitParent.AddChild(fruit);
+			fruit.GlobalPosition = this.GlobalPosition;
+			if (fruit.Position.Y > GetViewport().GetVisibleRect().Size.Y - 200)
+			{
+				fruit.QueueFree();
+			}
+		}
 	}
 
 	void CustomMove(double delta)

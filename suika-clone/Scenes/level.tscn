@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4jiin67gp0xy"]
+[gd_scene load_steps=6 format=3 uid="uid://c4jiin67gp0xy"]
 
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_cfb4e"]
 [ext_resource type="Script" path="res://Scripts/Spawner.cs" id="2_nv5a3"]
 [ext_resource type="Script" path="res://addons/2d_shapes/shapes/Ellipse.gd" id="3_qhj8s"]
+[ext_resource type="PackedScene" uid="uid://ckun6bvtewa1n" path="res://Scenes/Cherry.tscn" id="3_t4e0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wv0s"]
 
@@ -39,7 +40,6 @@ position = Vector2(574, 639)
 rotation = -1.5708
 script = ExtResource("1_cfb4e")
 size = Vector2(100, 562)
-metadata/_edit_lock_ = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level Geo/Floor"]
 
@@ -49,10 +49,14 @@ shape = SubResource("RectangleShape2D_8wv0s")
 
 [node name="Game Manager" type="Node" parent="."]
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" type="Node2D" parent="." node_paths=PackedStringArray("fruitParent")]
 position = Vector2(340, 0)
 script = ExtResource("2_nv5a3")
+cherry = ExtResource("3_t4e0v")
+fruitParent = NodePath("../Fruit Parent")
 
 [node name="Ellipse" type="Node2D" parent="Spawner"]
 script = ExtResource("3_qhj8s")
 size = Vector2(30, 30)
+
+[node name="Fruit Parent" type="Node2D" parent="."]
