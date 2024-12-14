@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4jiin67gp0xy"]
+
+[ext_resource type="Script" path="res://addons/2d_shapes/shapes/Rectangle.gd" id="1_cfb4e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wv0s"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Level Geo" type="Node" parent="."]
+
+[node name="Left Wall" type="Node2D" parent="Level Geo"]
+position = Vector2(292, 371)
+script = ExtResource("1_cfb4e")
+size = Vector2(100, 562)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level Geo/Left Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level Geo/Left Wall/StaticBody2D"]
+scale = Vector2(5, 28.0887)
+shape = SubResource("RectangleShape2D_8wv0s")
+
+[node name="Right Wall" type="Node2D" parent="Level Geo"]
+position = Vector2(857, 371)
+script = ExtResource("1_cfb4e")
+size = Vector2(100, 562)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level Geo/Right Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level Geo/Right Wall/StaticBody2D"]
+scale = Vector2(5, 28.0887)
+shape = SubResource("RectangleShape2D_8wv0s")
+
+[node name="Floor" type="Node2D" parent="Level Geo"]
+position = Vector2(574, 639)
+rotation = -1.5708
+script = ExtResource("1_cfb4e")
+size = Vector2(100, 562)
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level Geo/Floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level Geo/Floor/StaticBody2D"]
+scale = Vector2(5, 28.0887)
+shape = SubResource("RectangleShape2D_8wv0s")
+
+[node name="Game Manager" type="Node" parent="."]
